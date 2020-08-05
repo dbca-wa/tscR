@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Threatened Species and Communities Data Export and Analysis • tscR</title>
+<title>Threatened Species and Communities Data Export and Analysis • tscr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -14,7 +14,7 @@
 <script src="pkgdown.js"></script><meta property="og:title" content="Threatened Species and Communities Data Export and Analysis">
 <meta property="og:description" content="TSC is DBCAs Threatened Species and Communities Data Portal.
   TSC provides access to its data through a RESTful API. 
-  tscR provides helpers and working examples of getting data in and out of TSCs
+  tscr provides helpers and working examples of getting data in and out of TSCs
   API, as well as starting points for data visualisations and analyses of TSC 
   data.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">tscR</a>
+        <a class="navbar-link" href="index.html">tscr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -65,7 +65,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/dbca-wa/tscR/">
+  <a href="https://github.com/dbca-wa/tscr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -82,19 +82,20 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="tscr" class="section level1">
+<div id="tscr-an-r-client-for-the-threatened-species-and-communities-db-tsc-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#tscr" class="anchor"></a>tscR</h1></div>
+<a href="#tscr-an-r-client-for-the-threatened-species-and-communities-db-tsc-" class="anchor"></a><code>tscr</code>: An R client for the Threatened Species and Communities DB (TSC) <img src="reference/figures/tscr_logo.png" align="right" alt="tscr logo" width="120">
+</h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of tscR is to provide access to TSC data, and to provide working examples of analysis and visualisation of TSC data to answer QA, ecological, and management questions.</p>
+<p>The goal of tscr is to provide access to TSC data, and to provide working examples of analysis and visualisation of TSC data to answer QA, ecological, and management questions.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install tscR from <a href="https://github.com/dbca-wa/tscR/">GitHub</a> with:</p>
+<p>You can install tscr from <a href="https://github.com/dbca-wa/tscr/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscR"</span>)</pre></div>
-<p>Read vignette “Setup” to learn how to configure tscR to use TSC’s API.</p>
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>)</pre></div>
+<p>Read vignette “Setup” to learn how to configure tscr to use TSC’s API.</p>
 </div>
 <div id="working-examples" class="section level2">
 <h2 class="hasAnchor">
@@ -113,11 +114,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from BIOC at <br><a href="https://www.bioconductor.org/packages/tscR">https://​www.bioconductor.org/​packages/​tscR</a>
+<li>Browse source code at <br><a href="https://github.com/dbca-wa/tscr/">https://​github.com/​dbca-wa/​tscr/​</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/dbca-wa/tscR/">https://​github.com/​dbca-wa/​tscR/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/dbca-wa/tscR/issues/new/choose">https://​github.com/​dbca-wa/​tscR/​issues/​new/​choose</a>
+<li>Report a bug at <br><a href="https://github.com/dbca-wa/tscr/issues/new/choose">https://​github.com/​dbca-wa/​tscr/​issues/​new/​choose</a>
 </li>
 </ul>
 </div>
