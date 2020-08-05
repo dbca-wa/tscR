@@ -101,16 +101,24 @@
 <div id="download-taxon-occurrences-from-tsc" class="section level1">
 <h1 class="hasAnchor">
 <a href="#download-taxon-occurrences-from-tsc" class="anchor"></a>Download Taxon Occurrences from TSC</h1>
-<p>We get Taxon ocurrences with their point representation from TSC. Currently, all Fauna and Flora occurrences have only points, not polygons. In future, Flora Populations can be captured as polygons representing the entire population, or a surveyed part of it.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"># tae &lt;- tscr::tsc_GET("occ-taxon-points") # 137k records
-# save(tae, file=here::here("data-raw/tae.RData", compress="xz")
-     
-# tae_gj &lt;- tae %&gt;%
-  # magrittr::extract2("features") %&gt;%
-  # geojsonio::as.json() %&gt;%
-  # geojsonsf::geojson_sf()
+<p>We get Taxon occurrences with their point representation from TSC. Currently, all Fauna and Flora occurrences have only points, not polygons. In future, Flora Populations can be captured as polygons representing the entire population, or a surveyed part of it.</p>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">areas</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span>(<span class="st">"area"</span>, <span class="kw">chunk_size</span> <span class="kw">=</span> <span class="fl">100</span>) <span class="kw">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span>()
+<span class="co"># Areas as tibble</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">areas</span>) <span class="kw">%&gt;%</span> <span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>()
 
-# save(tae_gj, file=here::here("data-raw/tae_gj.RData", compress="xz")</pre></body></html></div>
+<span class="co"># Taxon occurrences with their Point representation</span>
+<span class="no">tae_res</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span>(<span class="st">"occ-taxon-points"</span>, <span class="kw">max_records</span> <span class="kw">=</span> <span class="fl">10</span>)
+
+<span class="co"># Taxon occurrences as tibble</span>
+<span class="no">tae</span> <span class="kw">&lt;-</span> <span class="no">tae_res</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">tae</span>) <span class="kw">%&gt;%</span> <span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>()
+
+<span class="co"># Taxon occurrences as GeoJSON SimpleFeatures for plotting</span>
+<span class="no">tae_gj</span> <span class="kw">&lt;-</span> <span class="no">tae_res</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">magrittr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/magrittr/man/aliases.html">extract2</a></span>(<span class="st">"data"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">geojsonio</span><span class="kw ns">::</span><span class="fu">as.json</span>() <span class="kw">%&gt;%</span>
+  <span class="kw pkg">geojsonsf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/geojsonsf/man/geojson_sf.html">geojson_sf</a></span>()
+<span class="kw pkg">mapview</span><span class="kw ns">::</span><span class="fu">mapview</span>(<span class="no">tae_gj</span>)</pre></body></html></div>
 </div>
   </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tscr</title>
+<title>Parse a <code>tsc_api_response</code> into a tibble — tsc_parse • tscr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,13 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Parse a <code>tsc_api_response</code> into a tibble — tsc_parse" />
+<meta property="og:description" content="From a tsc_api_response, turn the key payload
+(default: &quot;features&quot;) into a tibble:tibble, and
+tidyr::unnest_wider the tibble into columns equivalent to the fields
+of the TSC API serializer.
+If GeoJSON is found, the keys geometry (including coordinates) will
+remain unchanged, but the key properties will be unnested." />
 
 
 
@@ -58,7 +64,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,98 +126,52 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Parse a <code>tsc_api_response</code> into a tibble</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dbca-wa/tscr/blob/master/R/tsc_parse.R'><code>R/tsc_parse.R</code></a></small>
+    <div class="hidden name"><code>tsc_parse.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>From a <code>tsc_api_response</code>, turn the key <code>payload</code>
+(default: "features") into a <code>tibble:tibble</code>, and
+<code><a href='https://tidyr.tidyverse.org/reference/hoist.html'>tidyr::unnest_wider</a></code> the tibble into columns equivalent to the fields
+of the TSC API serializer.
+If GeoJSON is found, the keys <code>geometry</code> (including <code>coordinates</code>) will
+remain unchanged, but the key <code>properties</code> will be unnested.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>tsc_parse</span>(<span class='no'>tsc_api_response</span>, <span class='kw'>payload</span> <span class='kw'>=</span> <span class='st'>"data"</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-api" class="hasAnchor"><a href="#section-api" class="anchor"></a>API</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="print.tsc_api_response.html">print(<i>&lt;tsc_api_response&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>S3 print method for 'tsc_api_response'.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_GET.html">tsc_GET()</a></code> </p>
-        </td>
-        <td><p>Return GeoJSON features from a TSC API endpoint</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_parse.html">tsc_parse()</a></code> </p>
-        </td>
-        <td><p>Parse a <code>tsc_api_response</code> into a tibble</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-helpers" class="hasAnchor"><a href="#section-helpers" class="anchor"></a>Helpers</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="get_more.html">get_more()</a></code> </p>
-        </td>
-        <td><p>Decide whether the given download limit has been reached</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_online.html">tsc_online()</a></code> </p>
-        </td>
-        <td><p>Check whether API token is set and WAStD is online</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_settings.html">tsc_settings()</a></code> <code><a href="tsc_settings.html">get_tsc_api_url()</a></code> <code><a href="tsc_settings.html">get_tsc_api_token()</a></code> <code><a href="tsc_settings.html">get_tsc_test_api_url()</a></code> <code><a href="tsc_settings.html">get_tsc_test_api_token()</a></code> <code><a href="tsc_settings.html">get_tsc_verbose()</a></code> </p>
-        </td>
-        <td><p>Get or set TSC settings</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>tsc_api_response</th>
+      <td><p>A <code>tsc_api_response</code> from TSC</p></td>
+    </tr>
+    <tr>
+      <th>payload</th>
+      <td><p>(chr) The name of the key containing the parsed
+<code><a href='https://httr.r-lib.org/reference/content.html'>httr::content()</a></code> from the TSC API call</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble with one row per record and columns corresponding to each
+record's fields.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other api: 
+<code><a href='print.tsc_api_response.html'>print.tsc_api_response</a>()</code>,
+<code><a href='tsc_GET.html'>tsc_GET</a>()</code></p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

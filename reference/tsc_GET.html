@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tscr</title>
+<title>Return GeoJSON features from a TSC API endpoint — tsc_GET • tscr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Return GeoJSON features from a TSC API endpoint — tsc_GET" />
+<meta property="og:description" content="Call the TSC API serializer's list view with given GET
+parameters, parse the response's features into a nested list.
+This function requires the TSC API to return the results in a key
+features (if GeoJSON) or data (if JSON)." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,98 +124,99 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Return GeoJSON features from a TSC API endpoint</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dbca-wa/tscr/blob/master/R/tsc_GET.R'><code>R/tsc_GET.R</code></a></small>
+    <div class="hidden name"><code>tsc_GET.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Call the TSC API serializer's list view with given GET
+parameters, parse the response's features into a nested list.
+This function requires the TSC API to return the results in a key
+<code>features</code> (if GeoJSON) or <code>data</code> (if JSON).</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>tsc_GET</span>(
+  <span class='no'>serializer</span>,
+  <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
+  <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"json"</span>,
+  <span class='kw'>max_records</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>chunk_size</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>api_url</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_api_url</a></span>(),
+  <span class='kw'>api_token</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_api_token</a></span>(),
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_verbose</a></span>()
+)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-api" class="hasAnchor"><a href="#section-api" class="anchor"></a>API</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="print.tsc_api_response.html">print(<i>&lt;tsc_api_response&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>S3 print method for 'tsc_api_response'.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_GET.html">tsc_GET()</a></code> </p>
-        </td>
-        <td><p>Return GeoJSON features from a TSC API endpoint</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_parse.html">tsc_parse()</a></code> </p>
-        </td>
-        <td><p>Parse a <code>tsc_api_response</code> into a tibble</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-helpers" class="hasAnchor"><a href="#section-helpers" class="anchor"></a>Helpers</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="get_more.html">get_more()</a></code> </p>
-        </td>
-        <td><p>Decide whether the given download limit has been reached</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_online.html">tsc_online()</a></code> </p>
-        </td>
-        <td><p>Check whether API token is set and WAStD is online</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsc_settings.html">tsc_settings()</a></code> <code><a href="tsc_settings.html">get_tsc_api_url()</a></code> <code><a href="tsc_settings.html">get_tsc_api_token()</a></code> <code><a href="tsc_settings.html">get_tsc_test_api_url()</a></code> <code><a href="tsc_settings.html">get_tsc_test_api_token()</a></code> <code><a href="tsc_settings.html">get_tsc_verbose()</a></code> </p>
-        </td>
-        <td><p>Get or set TSC settings</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>serializer</th>
+      <td><p>(character) TSC API serializer name (required)
+Possible values see <code>https://tsc.dbca.wa.gov.au/api/1/</code></p></td>
+    </tr>
+    <tr>
+      <th>query</th>
+      <td><p>(list) A list of GET parameters, default: list().
+The <code>format</code> is specified in a separate top-level param.</p></td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td><p>(chr) The desired API output format, default: "json".</p></td>
+    </tr>
+    <tr>
+      <th>max_records</th>
+      <td><p>(int) The maximum number of records retrieved.
+If left at default (NULL), all records are returned.
+Default: NULL.</p></td>
+    </tr>
+    <tr>
+      <th>chunk_size</th>
+      <td><p>(int) The number of records to retrieve in each paginated
+response. A specified but smaller <code>limit</code> will override
+<code>chunk_size</code>.
+Adjust <code>chunk_size</code> down if getting timeouts from the API.
+Default: 1000.</p></td>
+    </tr>
+    <tr>
+      <th>api_url</th>
+      <td><p>(character) The TSC API URL,
+default <code><a href='tsc_settings.html'>get_tsc_api_url</a></code>, see <code><a href='tsc_setup.html'>tsc_setup</a></code></p></td>
+    </tr>
+    <tr>
+      <th>api_token</th>
+      <td><p>(character) The TSC API token,
+default <code><a href='tsc_settings.html'>get_tsc_api_token</a></code>, see <code>Tsc_setup</code></p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Whether to show verbose messages.
+Default: <code><a href='tsc_settings.html'>get_tsc_verbose</a></code>.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An S3 object of class 'tsc_api_response' containing:</p>
+<p>features: The sent GeoJSON features</p>
+<p>serializer: The called serializer, e.g. 'area'</p>
+<p>response: The API HTTP response with all metadata</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other api: 
+<code><a href='print.tsc_api_response.html'>print.tsc_api_response</a>()</code>,
+<code><a href='tsc_parse.html'>tsc_parse</a>()</code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>area_records</span> <span class='kw'>&lt;-</span> <span class='fu'>tsc_GET</span>(<span class='st'>"area"</span>)
+}</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
