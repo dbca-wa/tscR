@@ -90,15 +90,15 @@
     
     
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tscr</span>)</pre></body></html></div>
-<div id="setup-wastdr" class="section level1">
+<div id="setup-tscr" class="section level1">
 <h1 class="hasAnchor">
-<a href="#setup-wastdr" class="anchor"></a>Setup wastdr</h1>
+<a href="#setup-tscr" class="anchor"></a>Setup tscr</h1>
 <p>Read how to <a href="https://dbca-wa.github.io/tscr/articles/setup.html">setup</a> tscr to the TSC API.</p>
 </div>
 <div id="download-taxon-occurrences-from-tsc" class="section level1">
 <h1 class="hasAnchor">
 <a href="#download-taxon-occurrences-from-tsc" class="anchor"></a>Download Taxon Occurrences from TSC</h1>
-<p>We get Taxon ocurrences with their point representation from TSC. Currently, all Fauna and Flora occurrences have only points, not polygons.</p>
+<p>We get Taxon ocurrences with their point representation from TSC. Currently, all Fauna and Flora occurrences have only points, not polygons. In future, Flora Populations can be captured as polygons representing the entire population, or a surveyed part of it.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"># tae &lt;- tscr::tsc_GET("occ-taxon-points") # 137k records
 # save(tae, file=here::here("data-raw/tae.RData", compress="xz")
      
