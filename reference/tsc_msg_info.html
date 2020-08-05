@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hello, World! — hello • tscr</title>
+<title>Print a blue info message with an info symbol. — tsc_msg_info • tscr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Hello, World! — hello" />
-<meta property="og:description" content="Prints 'Hello, world!'." />
+<meta property="og:title" content="Print a blue info message with an info symbol. — tsc_msg_info" />
+<meta property="og:description" content="" />
 
 
 
@@ -123,21 +123,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Hello, World!</h1>
-    
-    <div class="hidden name"><code>hello.Rd</code></div>
+    <h1>Print a blue info message with an info symbol.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dbca-wa/tscr/blob/master/R/tsc_msg.R'><code>R/tsc_msg.R</code></a></small>
+    <div class="hidden name"><code>tsc_msg_info.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Prints 'Hello, world!'.</p>
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
     </div>
 
-    <pre class="usage"><span class='fu'>hello</span>()</pre>
+    <pre class="usage"><span class='fu'>tsc_msg_info</span>(<span class='no'>message</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>message</th>
+      <td><p>(chr) A message to print</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other utilities: 
+<code><a href='tsc_msg_abort.html'>tsc_msg_abort</a>()</code>,
+<code><a href='tsc_msg_noop.html'>tsc_msg_noop</a>()</code>,
+<code><a href='tsc_msg_success.html'>tsc_msg_success</a>()</code>,
+<code><a href='tsc_msg_warn.html'>tsc_msg_warn</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>hello</span>()</div><div class='output co'>#&gt; [1] "Hello, world!"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tsc_msg_info</span>(<span class='st'>"This is an info message."</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ This is an info message.</span><span></span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -92,13 +92,15 @@
 <!-- badges: start -->
 
 <p>The goal of tscr is to provide access to TSC data, and to provide working examples of analysis and visualisation of TSC data to answer QA, ecological, and management questions.</p>
-<div id="installation" class="section level2">
+<div id="installation-and-setup" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h2>
 <p>You can install tscr from <a href="https://github.com/dbca-wa/tscr/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>)</pre></div>
-<p>Read <code><a href="articles/setup.html">vignette("setup", package = "tscr")</a></code> to learn how to configure tscr to use TSC’s API.</p>
+<p>To set up <code>tscr</code>, run <code>usethis::edit_r_environ()</code>, add your TSC API Token, then restart your R session.</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="no">TSC_API_TOKEN</span><span class="kw">=</span><span class="st">"Token xxx"</span></pre></div>
+<p>Read <code><a href="articles/setup.html">vignette("setup", package = "tscr")</a></code> to learn more how to configure <code>tscr</code>.</p>
 </div>
 <div id="working-examples" class="section level2">
 <h2 class="hasAnchor">
