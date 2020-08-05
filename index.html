@@ -97,10 +97,14 @@
 <a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h2>
 <p>You can install <code>tscr</code> from <a href="https://github.com/dbca-wa/tscr/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>)</pre></div>
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>,
+                        <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
+                        <span class="kw">upgrade</span> <span class="kw">=</span> <span class="st">"always"</span>,
+                        <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 <p>To set up <code>tscr</code>, run <code>usethis::edit_r_environ()</code>, add your TSC API Token, then restart your R session.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="no">TSC_API_TOKEN</span><span class="kw">=</span><span class="st">"Token xxx"</span></pre></div>
-<p>Read <code><a href="articles/setup.html">vignette("setup", package = "tscr")</a></code> (online <a href="https://dbca-wa.github.io/tscr/articles/setup.html">here</a>) to learn more about the configuration of <code>tscr</code>.</p>
+<p>Read vignette “Setup” (online <a href="https://dbca-wa.github.io/tscr/articles/setup.html">here</a>) to learn more about the configuration of <code>tscr</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"setup"</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"tscr"</span>)</pre></div>
 </div>
 <div id="working-examples" class="section level2">
 <h2 class="hasAnchor">
