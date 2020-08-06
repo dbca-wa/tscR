@@ -115,6 +115,12 @@
 <h2 class="hasAnchor">
 <a href="#for-data-engineers" class="anchor"></a>For data engineers</h2>
 <p>If you wish to run any of the included working examples or create new data analyses, install this package and configure <code>tscr</code> to TSC’s API with your own credentials as outlined below.</p>
+<p>Use cases:</p>
+<ul>
+<li>Create a bulk data export into spreadsheet or GIS formats.</li>
+<li>Build your own analyses and reports to answer conservation management, ecological, or QA questions.</li>
+<li>ETL of bulk data from third parties (data returns from consultants) into TSC.</li>
+</ul>
 <div id="installation-and-setup" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h3>
@@ -166,7 +172,7 @@
 <span class="co">#</span>
 <span class="co"># Checks</span>
 <span class="kw pkg">goodpractice</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/goodpractice/man/gp.html">goodpractice</a></span>(<span class="kw">quiet</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/check.html">check</a></span>(<span class="kw">cran</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">remote</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">incoming</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/check.html">check</a></span>(<span class="kw">cran</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">remote</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">incoming</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
 <span class="co">#</span>
 <span class="co"># Add new feature to news if user-facing</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit_file.html">edit_file</a></span>(<span class="st">"NEWS.md"</span>)
@@ -212,6 +218,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://github.com/dbca-wa/tscr/actions"><img src="https://github.com/dbca-wa/tscr/workflows/tic/badge.svg" alt="CI"></a></li>
 <li><a href="https://codecov.io/gh/dbca-wa/tscr?branch=master"><img src="https://codecov.io/gh/dbca-wa/tscr/branch/master/graph/badge.svg" alt="Test coverage"></a></li>
 <li><a href="https://github.com/dbca-wa/tscr/commits/master"><img src="https://img.shields.io/github/last-commit/dbca-wa/tscr.svg" alt="Last-changedate"></a></li>
 <li><a href="https://github.com/dbca-wa/tscr/issues"><img src="https://img.shields.io/github/issues/dbca-wa/tscr.svg?style=popout" alt="GitHub issues"></a></li>
