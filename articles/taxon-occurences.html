@@ -119,9 +119,9 @@
 <span class="co"># Taxon occurrences as GeoJSON SimpleFeatures for plotting</span>
 <span class="no">tae_gj</span> <span class="kw">&lt;-</span> <span class="no">tae_res</span> <span class="kw">%&gt;%</span>
   <span class="kw pkg">magrittr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/magrittr/man/aliases.html">extract2</a></span>(<span class="st">"data"</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">geojsonio</span><span class="kw ns">::</span><span class="fu">as.json</span>() <span class="kw">%&gt;%</span>
+  <span class="kw pkg">geojsonio</span><span class="kw ns">::</span><span class="fu"><a href="https://docs.ropensci.org/geojsonio/reference/as.json.html">as.json</a></span>() <span class="kw">%&gt;%</span>
   <span class="kw pkg">geojsonsf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/geojsonsf/man/geojson_sf.html">geojson_sf</a></span>()
-<span class="kw pkg">mapview</span><span class="kw ns">::</span><span class="fu">mapview</span>(<span class="no">tae_gj</span>)</pre></body></html></div>
+<span class="kw pkg">mapview</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html">mapview</a></span>(<span class="no">tae_gj</span>)</pre></body></html></div>
 </div>
   </div>
 
