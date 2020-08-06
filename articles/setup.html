@@ -61,6 +61,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -97,9 +100,9 @@
 <div id="settings-via-environment-variables" class="section level2">
 <h2 class="hasAnchor">
 <a href="#settings-via-environment-variables" class="anchor"></a>Settings via environment variables</h2>
-<p>Run <code>usethis::edit_r_environ()</code> to open your <code>.Renviron</code> file. Paste the following code into the file with your own TSC credentials, then restart your R session (Ctrl+Shift+F10 in RStudio) to apply the changes.</p>
+<p>Run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code> to open your <code>.Renviron</code> file. Paste the following code into the file with your own TSC credentials, then restart your R session (Ctrl+Shift+F10 in RStudio) to apply the changes.</p>
 <p><code>tscr</code> will use these environment variables as defaults for the TSC API location and authentication.</p>
-<p>TSC users can find their API Token on their “Profile” page. The API Token is a character string starting with “Token”. We use <a href="https://tsc-uat.dbca.wa.gov.au/api/1/">TSC UAT</a> to test this package and suggest that users use it to test data uploads.</p>
+<p>TSC users can find their API Token on their “Profile” page. The API Token is a character string starting with “Token”. While <a href="https://tsc.dbca.wa.gov.au/api/1/">TSC (Production)</a> contains the production data, we use the User Acceptance Testing (UAT) instance at <a href="https://tsc-uat.dbca.wa.gov.au/api/1/">TSC UAT</a> to test this package’s read and write functionality. Users can also use TSC UAT to test their own data uploads.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">TSC_API_URL</span><span class="kw">=</span><span class="st">"https://tsc.dbca.wa.gov.au/api/1/"</span>
 <span class="no">TSC_API_TOKEN</span><span class="kw">=</span><span class="st">"Token xxx"</span>
 <span class="no">TSC_TEST_API_URL</span><span class="kw">=</span><span class="st">"https://tsc-uat.dbca.wa.gov.au/api/1/"</span>

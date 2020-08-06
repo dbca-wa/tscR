@@ -65,6 +65,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -92,30 +95,84 @@
 <!-- badges: start -->
 
 <p>The goal of <code>tscr</code> is to provide access to TSC data, and to provide working examples of analysis and visualisation of TSC data to answer QA, ecological, and management questions.</p>
-<div id="installation-and-setup" class="section level2">
+<div id="for-conservation-managers-and-ecologists" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h2>
+<a href="#for-conservation-managers-and-ecologists" class="anchor"></a>For conservation managers and ecologists</h2>
+<p>Here we’ll list working examples of conservation management nature, ecological, or data QA questions answered with TSC data.</p>
+<p>Example questions (to be replaced with working examples):</p>
+<ul>
+<li>How many birds rose in conservation listing status in WA in the past X years?</li>
+<li>Which conservation significant plants have been recorded in DBCA District X?</li>
+<li>What is the predicted habitat for a taxon known under taxonomic name X?</li>
+<li>Generate a formatted PDF and a plain CSV spreadsheet of threatened flora and fauna names in WA.</li>
+<li>Generate an interactive map of all accepted occurrences in area X.</li>
+<li>List conservation documents coming up for review within the next 6 months.</li>
+<li>List occurrences flagged for review.</li>
+</ul>
+<p>Help us completing this list by filing new “Data export or analysis requests” <a href="https://github.com/dbca-wa/tscr/issues/new/choose">here</a>.</p>
+</div>
+<div id="for-data-engineers" class="section level2">
+<h2 class="hasAnchor">
+<a href="#for-data-engineers" class="anchor"></a>For data engineers</h2>
+<p>If you wish to run any of the included working examples or create new data analyses, install this package and configure <code>tscr</code> to TSC’s API with your own credentials as outlined below.</p>
+<div id="installation-and-setup" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h3>
 <p>You can install <code>tscr</code> from <a href="https://github.com/dbca-wa/tscr/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>,
                         <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
                         <span class="kw">upgrade</span> <span class="kw">=</span> <span class="st">"always"</span>,
                         <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
-<p>To set up <code>tscr</code>, run <code>usethis::edit_r_environ()</code>, add your TSC API Token, then restart your R session.</p>
+<p>To set up <code>tscr</code>, run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code>, add your TSC API Token, then restart your R session.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="no">TSC_API_TOKEN</span><span class="kw">=</span><span class="st">"Token xxx"</span></pre></div>
 <p>Read vignette “Setup” (online <a href="https://dbca-wa.github.io/tscr/articles/setup.html">here</a>) to learn more about the configuration of <code>tscr</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"setup"</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"tscr"</span>)</pre></div>
 </div>
-<div id="working-examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#working-examples" class="anchor"></a>Working examples</h2>
-<p>Here we’ll list vignettes demonstrating working examples of answering questions with TSC data.</p>
 </div>
-<div id="contribute" class="section level2">
+<div id="for-package-maintainers-and-contributors" class="section level2">
 <h2 class="hasAnchor">
-<a href="#contribute" class="anchor"></a>Contribute</h2>
+<a href="#for-package-maintainers-and-contributors" class="anchor"></a>For package maintainers and contributors</h2>
+<div id="contribute" class="section level3">
+<h3 class="hasAnchor">
+<a href="#contribute" class="anchor"></a>Contribute</h3>
 <p>Found a bug in <code>tscr</code>, need a new <code>tscr</code> feature, or need a working example to generate a data product from TSC? Let us know <a href="https://github.com/dbca-wa/tscr/issues/new/choose">here</a>!</p>
 <p>Want to chat about TSC? Join the <a href="https://teams.microsoft.com/_#/conversations/General?threadId=19:20412eea61c949e59460ece939a128cd@thread.tacv2&amp;ctx=channel">“TSC” group on DBCA’s Teams</a>! (You’ll need a DBCA account to access this group.)</p>
+</div>
+<div id="release" class="section level3">
+<h3 class="hasAnchor">
+<a href="#release" class="anchor"></a>Release</h3>
+<p>Tasks that can be run for each release are shown below.</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_version.html">use_version</a></span>(<span class="kw">which</span> <span class="kw">=</span> <span class="st">"dev"</span>) <span class="co"># patch, dev, minor, major</span>
+
+<span class="co"># Rebuild included package data, used for tests and vignettes</span>
+<span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="kw pkg">here</span><span class="kw ns">::</span><span class="fu">here</span>(<span class="st">"data-raw/make_data.R"</span>))
+
+<span class="co"># Tests shall pass</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/test.html">test</a></span>()
+
+<span class="kw pkg">styler</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/styler/man/style_pkg.html">style_pkg</a></span>()
+<span class="kw pkg">lintr</span><span class="kw ns">:::</span><span class="fu">addin_lint_package</span>() <span class="co"># some lint errors are OK</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span>(<span class="kw">roclets</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"rd"</span>, <span class="st">"collate"</span>, <span class="st">"namespace"</span>, <span class="st">"vignette"</span>))
+<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">spell_check_package</span>()
+<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">spell_check_files</span>(<span class="st">"README.Rmd"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en_AU"</span>)
+<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">update_wordlist</span>()
+<span class="kw pkg">codemetar</span><span class="kw ns">::</span><span class="fu">write_codemeta</span>(<span class="st">"tscr"</span>)
+<span class="kw">if</span> (<span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.md"</span>)$<span class="no">modification_time</span> <span class="kw">&lt;</span>
+  <span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.Rmd"</span>)$<span class="no">modification_time</span>) {
+  <span class="kw pkg">rmarkdown</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span>(<span class="st">"README.Rmd"</span>, <span class="kw">encoding</span> <span class="kw">=</span> <span class="st">"UTF-8"</span>, <span class="kw">clean</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+  <span class="kw">if</span> (<span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_access.html">file_exists</a></span>(<span class="st">"README.html"</span>)) <span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/delete.html">file_delete</a></span>(<span class="st">"README.html"</span>)
+}
+<span class="co">#</span>
+<span class="co"># Checks</span>
+<span class="kw pkg">goodpractice</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/goodpractice/man/gp.html">goodpractice</a></span>(<span class="kw">quiet</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/check.html">check</a></span>(<span class="kw">cran</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">remote</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">incoming</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="co">#</span>
+<span class="co"># Add new feature to news if user-facing</span>
+<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit_file.html">edit_file</a></span>(<span class="st">"NEWS.md"</span>)
+
+<span class="co"># Commit and push</span></pre></div>
+</div>
 </div>
 </div>
   </div>
