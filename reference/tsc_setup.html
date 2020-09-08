@@ -136,11 +136,11 @@
     </div>
 
     <pre class="usage"><span class='fu'>tsc_setup</span>(
-  <span class='kw'>api_url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>api_token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>test_api_url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>test_api_token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  api_url = <span class='kw'>NULL</span>,
+  api_token = <span class='kw'>NULL</span>,
+  test_api_url = <span class='kw'>NULL</span>,
+  test_api_token = <span class='kw'>NULL</span>,
+  verbose = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -181,7 +181,8 @@ functions default to use the default URL, but require an API Token to work.</p>
     <pre class="examples"><div class='input'><span class='co'># TSC users can access their TSC API Token on their profile page on TSC.</span>
 <span class='co'># Not specifying the default TSC API URL will reset the TSC URL to its</span>
 <span class='co'># default "https://tsc.dbca.wa.gov.au/api/1/":</span>
-<span class='fu'>tsc_setup</span>(<span class='kw'>api_token</span> <span class='kw'>=</span> <span class='st'>"Token xxx"</span>)</div></pre>
+<span class='fu'>tsc_setup</span>(api_token = <span class='st'>"Token xxx"</span>)
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -197,7 +198,7 @@ functions default to use the default URL, but require an API Token to work.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

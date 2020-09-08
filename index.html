@@ -125,15 +125,21 @@
 <h3 class="hasAnchor">
 <a href="#installation-and-setup" class="anchor"></a>Installation and Setup</h3>
 <p>You can install <code>tscr</code> from <a href="https://github.com/dbca-wa/tscr/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>,
-                        <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-                        <span class="kw">upgrade</span> <span class="kw">=</span> <span class="st">"always"</span>,
-                        <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"dbca-wa/tscr"</span>, 
+                        dependencies = <span class="fl">TRUE</span>, 
+                        upgrade = <span class="st">"always"</span>,
+                        build_vignettes = <span class="fl">TRUE</span>)
+</pre></div>
 <p>To set up <code>tscr</code>, run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code>, add your TSC API Token, then restart your R session.</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="no">TSC_API_TOKEN</span><span class="kw">=</span><span class="st">"Token xxx"</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="kw">TSC_API_TOKEN</span><span class="op">=</span><span class="st">"Token xxx"</span>
+</pre></div>
 <p>Read vignette “Setup” (online <a href="https://dbca-wa.github.io/tscr/articles/setup.html">here</a>) to learn more about the configuration of <code>tscr</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"setup"</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"tscr"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"setup"</span>, package = <span class="st">"tscr"</span>)
+</pre></div>
 </div>
 </div>
 <div id="for-package-maintainers-and-contributors" class="section level2">
@@ -149,35 +155,37 @@
 <h3 class="hasAnchor">
 <a href="#release" class="anchor"></a>Release</h3>
 <p>Tasks that can be run for each release are shown below.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_version.html">use_version</a></span>(<span class="kw">which</span> <span class="kw">=</span> <span class="st">"dev"</span>) <span class="co"># patch, dev, minor, major</span>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">usethis</span>::<span class="fu"><a href="https://usethis.r-lib.org/reference/use_version.html">use_version</a></span>(which = <span class="st">"dev"</span>) <span class="co"># patch, dev, minor, major</span>
 
 <span class="co"># Rebuild included package data, used for tests and vignettes</span>
-<span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="kw pkg">here</span><span class="kw ns">::</span><span class="fu">here</span>(<span class="st">"data-raw/make_data.R"</span>))
+<span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="kw">here</span>::<span class="fu">here</span>(<span class="st">"data-raw/make_data.R"</span>))
 
 <span class="co"># Tests shall pass</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/test.html">test</a></span>()
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/test.html">test</a></span>()
 
-<span class="kw pkg">styler</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/styler/man/style_pkg.html">style_pkg</a></span>()
-<span class="kw pkg">lintr</span><span class="kw ns">:::</span><span class="fu">addin_lint_package</span>() <span class="co"># some lint errors are OK</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span>(<span class="kw">roclets</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"rd"</span>, <span class="st">"collate"</span>, <span class="st">"namespace"</span>, <span class="st">"vignette"</span>))
-<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">spell_check_package</span>()
-<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">spell_check_files</span>(<span class="st">"README.Rmd"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en_AU"</span>)
-<span class="kw pkg">spelling</span><span class="kw ns">::</span><span class="fu">update_wordlist</span>()
-<span class="kw pkg">codemetar</span><span class="kw ns">::</span><span class="fu">write_codemeta</span>(<span class="st">"tscr"</span>)
-<span class="kw">if</span> (<span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.md"</span>)$<span class="no">modification_time</span> <span class="kw">&lt;</span>
-  <span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.Rmd"</span>)$<span class="no">modification_time</span>) {
-  <span class="kw pkg">rmarkdown</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span>(<span class="st">"README.Rmd"</span>, <span class="kw">encoding</span> <span class="kw">=</span> <span class="st">"UTF-8"</span>, <span class="kw">clean</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-  <span class="kw">if</span> (<span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/file_access.html">file_exists</a></span>(<span class="st">"README.html"</span>)) <span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/delete.html">file_delete</a></span>(<span class="st">"README.html"</span>)
+<span class="kw">styler</span>::<span class="fu"><a href="https://rdrr.io/pkg/styler/man/style_pkg.html">style_pkg</a></span>()
+<span class="kw">lintr</span>:::<span class="fu">addin_lint_package</span>() <span class="co"># some lint errors are OK</span>
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span>(roclets = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"rd"</span>, <span class="st">"collate"</span>, <span class="st">"namespace"</span>, <span class="st">"vignette"</span>))
+<span class="kw">spelling</span>::<span class="fu">spell_check_package</span>()
+<span class="kw">spelling</span>::<span class="fu">spell_check_files</span>(<span class="st">"README.Rmd"</span>, lang = <span class="st">"en_AU"</span>)
+<span class="kw">spelling</span>::<span class="fu">update_wordlist</span>()
+<span class="kw">codemetar</span>::<span class="fu">write_codemeta</span>(<span class="st">"tscr"</span>)
+<span class="co">if</span> (<span class="kw">fs</span>::<span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.md"</span>)<span class="op">$</span><span class="kw">modification_time</span> <span class="op">&lt;</span>
+  <span class="kw">fs</span>::<span class="fu"><a href="http://fs.r-lib.org/reference/file_info.html">file_info</a></span>(<span class="st">"README.Rmd"</span>)<span class="op">$</span><span class="kw">modification_time</span>) {
+  <span class="kw">rmarkdown</span>::<span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span>(<span class="st">"README.Rmd"</span>, encoding = <span class="st">"UTF-8"</span>, clean = <span class="fl">TRUE</span>)
+  <span class="co">if</span> (<span class="kw">fs</span>::<span class="fu"><a href="http://fs.r-lib.org/reference/file_access.html">file_exists</a></span>(<span class="st">"README.html"</span>)) <span class="kw">fs</span>::<span class="fu"><a href="http://fs.r-lib.org/reference/delete.html">file_delete</a></span>(<span class="st">"README.html"</span>)
 }
 <span class="co">#</span>
 <span class="co"># Checks</span>
-<span class="kw pkg">goodpractice</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/goodpractice/man/gp.html">goodpractice</a></span>(<span class="kw">quiet</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/check.html">check</a></span>(<span class="kw">cran</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">remote</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">incoming</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="kw">goodpractice</span>::<span class="fu"><a href="https://rdrr.io/pkg/goodpractice/man/gp.html">goodpractice</a></span>(quiet = <span class="fl">FALSE</span>)
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/check.html">check</a></span>(cran = <span class="fl">FALSE</span>, remote = <span class="fl">TRUE</span>, incoming = <span class="fl">TRUE</span>)
 <span class="co">#</span>
 <span class="co"># Add new feature to news if user-facing</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit_file.html">edit_file</a></span>(<span class="st">"NEWS.md"</span>)
+<span class="kw">usethis</span>::<span class="fu"><a href="https://usethis.r-lib.org/reference/edit_file.html">edit_file</a></span>(<span class="st">"NEWS.md"</span>)
 
-<span class="co"># Commit and push</span></pre></div>
+<span class="co"># Commit and push</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -233,7 +241,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

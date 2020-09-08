@@ -142,14 +142,14 @@ This function requires the TSC API to return the results in a key
     </div>
 
     <pre class="usage"><span class='fu'>tsc_GET</span>(
-  <span class='no'>serializer</span>,
-  <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
-  <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"json"</span>,
-  <span class='kw'>max_records</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>chunk_size</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='kw'>api_url</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_api_url</a></span>(),
-  <span class='kw'>api_token</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_api_token</a></span>(),
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fu'><a href='tsc_settings.html'>get_tsc_verbose</a></span>()
+  <span class='kw'>serializer</span>,
+  query = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
+  format = <span class='st'>"json"</span>,
+  max_records = <span class='kw'>NULL</span>,
+  chunk_size = <span class='fl'>1000</span>,
+  api_url = <span class='fu'><a href='tsc_settings.html'>get_tsc_api_url</a></span>(),
+  api_token = <span class='fu'><a href='tsc_settings.html'>get_tsc_api_token</a></span>(),
+  verbose = <span class='fu'><a href='tsc_settings.html'>get_tsc_verbose</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -216,9 +216,10 @@ Default: <code><a href='tsc_settings.html'>get_tsc_verbose</a></code>.</p></td>
 <code><a href='tsc_parse.html'>tsc_parse</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>area_records</span> <span class='kw'>&lt;-</span> <span class='fu'>tsc_GET</span>(<span class='st'>"area"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>area_records</span> <span class='op'>&lt;-</span> <span class='fu'>tsc_GET</span>(<span class='st'>"area"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -234,7 +235,7 @@ Default: <code><a href='tsc_settings.html'>get_tsc_verbose</a></code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
