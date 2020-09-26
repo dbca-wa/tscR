@@ -96,8 +96,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/dbca-wa/tscr">tscr</a></span>)
-</pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dbca-wa/tscr">tscr</a></span><span class="op">)</span></pre></div>
 <div id="setup-tscr" class="section level1">
 <h1 class="hasAnchor">
 <a href="#setup-tscr" class="anchor"></a>Setup tscr</h1>
@@ -108,24 +107,23 @@
 <a href="#download-taxon-occurrences-from-tsc" class="anchor"></a>Download Taxon Occurrences from TSC</h1>
 <p>We get Taxon occurrences with their point representation from TSC. Currently, all Fauna and Flora occurrences have only points, not polygons. In future, Flora Populations can be captured as polygons representing the entire population, or a surveyed part of it.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">areas</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span>(<span class="st">"area"</span>, chunk_size = <span class="fl">100</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span>()
+<span class="va">areas</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span><span class="op">(</span><span class="st">"area"</span>, chunk_size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Areas as tibble</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">areas</span>) <span class="op">%&gt;%</span> <span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">areas</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># Taxon occurrences with their Point representation</span>
-<span class="kw">tae_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span>(<span class="st">"occ-taxon-points"</span>, max_records = <span class="fl">10</span>) 
+<span class="va">tae_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tsc_GET.html">tsc_GET</a></span><span class="op">(</span><span class="st">"occ-taxon-points"</span>, max_records <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> 
 
 <span class="co"># Taxon occurrences as tibble</span>
-<span class="kw">tae</span> <span class="op">&lt;-</span> <span class="kw">tae_res</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span>()
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">tae</span>) <span class="op">%&gt;%</span> <span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>()
+<span class="va">tae</span> <span class="op">&lt;-</span> <span class="va">tae_res</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/tsc_parse.html">tsc_parse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tae</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span>
      
 <span class="co"># Taxon occurrences as GeoJSON SimpleFeatures for plotting</span>
-<span class="kw">tae_gj</span> <span class="op">&lt;-</span> <span class="kw">tae_res</span> <span class="op">%&gt;%</span>
-  <span class="kw">magrittr</span>::<span class="fu"><a href="https://rdrr.io/pkg/magrittr/man/aliases.html">extract2</a></span>(<span class="st">"data"</span>) <span class="op">%&gt;%</span>
-  <span class="kw">geojsonio</span>::<span class="fu"><a href="https://docs.ropensci.org/geojsonio/reference/as.json.html">as.json</a></span>() <span class="op">%&gt;%</span>
-  <span class="kw">geojsonsf</span>::<span class="fu"><a href="https://rdrr.io/pkg/geojsonsf/man/geojson_sf.html">geojson_sf</a></span>()
-<span class="kw">mapview</span>::<span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html">mapview</a></span>(<span class="kw">tae_gj</span>)
-</pre></div>
+<span class="va">tae_gj</span> <span class="op">&lt;-</span> <span class="va">tae_res</span> <span class="op">%&gt;%</span>
+  <span class="fu">magrittr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/magrittr/man/aliases.html">extract2</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">geojsonio</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/geojsonio/reference/as.json.html">as.json</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">geojsonsf</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geojsonsf/man/geojson_sf.html">geojson_sf</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">mapview</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html">mapview</a></span><span class="op">(</span><span class="va">tae_gj</span><span class="op">)</span></pre></div>
 </div>
   </div>
 
